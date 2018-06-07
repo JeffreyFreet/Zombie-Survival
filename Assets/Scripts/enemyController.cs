@@ -18,11 +18,10 @@ public class enemyController : MonoBehaviour {
 
     public GameManager gameManager;
 
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        gameManager = GetComponent<GameManager>();
+        gameManager = gameObject.GetComponent<GameManager>();
     }
 
     void Update()
@@ -70,11 +69,10 @@ public class enemyController : MonoBehaviour {
         if (health <= 0)
         {
             Debug.Log("enemy Died");
-            gameManager.updateScore();
             death();
         }
     }
-
+    
     public void death()
     {
         agent.isStopped = true;
