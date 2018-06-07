@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour {
     public playerController player;
     public Text healthText;
     public Text ammoText;
+    public Text scoreText;
+
+    private int _score = 0;
 
 	// Use this for initialization
 	void Start () {
         healthText.text = "Health: " + player.health.ToString();
         ammoText.text = "Ammo: " + player.ammo + "/7";
+        scoreText.text = "Score: " + _score;
 	}
 	
 	// Update is called once per frame
@@ -28,5 +32,11 @@ public class GameManager : MonoBehaviour {
     public void updateAmmo()
     {
         ammoText.text = ammoText.text = "Ammo: " + player.ammo + "/7";
+    }
+
+    public void updateScore()
+    {
+        _score += 10;
+        scoreText.text = "Score: " + _score;
     }
 }

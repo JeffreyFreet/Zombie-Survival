@@ -16,10 +16,13 @@ public class enemyController : MonoBehaviour {
     public Transform target;
     NavMeshAgent agent;
 
+    public GameManager gameManager;
+
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        gameManager = GetComponent<GameManager>();
     }
 
     void Update()
@@ -67,6 +70,7 @@ public class enemyController : MonoBehaviour {
         if (health <= 0)
         {
             Debug.Log("enemy Died");
+            gameManager.updateScore();
             death();
         }
     }

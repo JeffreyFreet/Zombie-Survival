@@ -89,9 +89,7 @@ public class playerController : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(hitSound, 1);
         health -= damage;
-        Debug.Log("Before update UI");
         gameManager.updateHealth();
-        Debug.Log("After update UI");
         //Debug.Log("Zombie Hit: " + health + " left");
         if (health <= 0)
         {
